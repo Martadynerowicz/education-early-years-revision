@@ -2,6 +2,8 @@
  * Placement scenario page. Readable replacement for the minified chunk.
  * Changes: personal-details note under each box; the model answer opens
  * after the learner has written an attempt. Responses are never saved or sent.
+ * College build: each task also gets "Check with AI (Copilot)", which copies a
+ * prompt for the learner to paste into Microsoft Copilot (assets/pgce-copilot.js).
  */
 import { t as Link } from "./link-CGW0isQW.js";
 import { o as scenarioRoute } from "./index-DY0MT8UW.js";
@@ -9,6 +11,7 @@ import { t as Button } from "./button-32Po9crL.js";
 import { t as Textarea } from "./textarea-BUz1xwuu.js";
 import { t as scenarios } from "./scenarios-B4WwqMTA.js";
 import { React, jsxRt, PersonalNote, wordCount, MIN_WORDS } from "./pgce-ui.js";
+import { CopilotCheck } from "./pgce-copilot.js";
 
 const { jsx, jsxs } = jsxRt;
 
@@ -49,6 +52,15 @@ function ScenarioPage() {
                 placeholder: "Write your response before revealing the model.",
               }),
               jsx(PersonalNote, { extra: "This box is not saved or sent anywhere." }),
+              jsx(CopilotCheck, {
+                stem: task.prompt,
+                scenario: sc.situation,
+                marks: task.marks,
+                points: task.bullets || [],
+                modelAnswer: task.model,
+                answer: texts[i] ?? "",
+                allowed: `${sc.title || ""} ${sc.situation || ""} ${task.prompt || ""}`,
+              }),
               jsx(Button, {
                 className: "mt-3",
                 variant: "outline",

@@ -3,6 +3,8 @@
  * Change: written answers are no longer scored by word count. After the
  * learner has written an answer and opened the model answer, they mark
  * themselves against the mark scheme. Multiple-choice is still marked exactly.
+ * College build: written questions also get "Check with AI (Copilot)"
+ * (assets/pgce-copilot.js; hidden unless switched on, and in research mode).
  */
 import { t as Link } from "./link-CGW0isQW.js";
 import { l as useProgress, r as paperRoute, u as cn } from "./index-DY0MT8UW.js";
@@ -10,6 +12,7 @@ import { t as Button } from "./button-32Po9crL.js";
 import { t as Textarea } from "./textarea-BUz1xwuu.js";
 import { n as papers } from "./exams-D_vx5f-A.js";
 import { React, jsxRt, PersonalNote, wordCount, MIN_WORDS } from "./pgce-ui.js";
+import { CopilotCheck } from "./pgce-copilot.js";
 
 const { jsx, jsxs } = jsxRt;
 const LETTERS = ["A", "B", "C", "D"];
@@ -135,6 +138,15 @@ function PaperPlayer({ paper }) {
               placeholder: "Write as you would in the exam hall.",
             }),
             jsx(PersonalNote, {}),
+            jsx(CopilotCheck, {
+              stem: q.stem,
+              scenario: q.scenario,
+              marks: q.marks,
+              points: q.markScheme || [],
+              modelAnswer: q.modelAnswer,
+              answer: text,
+              allowed: `${q.scenario || ""} ${q.stem || ""}`,
+            }, q.id),
           ],
         }),
       isRevealed &&

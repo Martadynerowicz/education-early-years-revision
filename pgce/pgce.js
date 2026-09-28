@@ -5,6 +5,8 @@
  * 3. Research mode (local only): counts sessions, topics opened and quizzes
  *    done, keeps a dated history of quiz/paper scores, and stops free-text
  *    answers being saved. Nothing is uploaded.
+ * 4. Staff test banner, only when pgce/config.js has staffTestBanner: true
+ *    (the in-app AI version; never the college Copilot build or Android).
  */
 import { KEYS, TEXT, getResearch, saveResearch, isResearchMode, aiStatus, today } from "/education-early-years-revision/assets/pgce-core.js";
 
@@ -27,6 +29,20 @@ function addResearchBadge() {
   a.href = "/education-early-years-revision/research.html";
   a.textContent = "Research mode on";
   document.body.appendChild(a);
+}
+
+/* ---- staff test banner (in-app AI version only) ---- */
+export const STAFF_BANNER =
+  "Staff test version — AI feedback uses a non-college AI service. Do not use with students until approved by the college Head of IT.";
+function addStaffBanner() {
+  const cfg = window.PGCE_CONFIG || {};
+  if (cfg.staffTestBanner !== true || document.querySelector(".pgce-staff-banner")) return;
+  const d = document.createElement("div");
+  d.className = "pgce-staff-banner";
+  d.setAttribute("role", "note");
+  d.setAttribute("data-pgce", "staff-banner");
+  d.textContent = STAFF_BANNER;
+  document.body.insertBefore(d, document.body.firstChild);
 }
 
 /* ---- 2. AI navigation ---- */
@@ -119,7 +135,7 @@ trackPath();
 setInterval(trackPath, 1000);
 window.addEventListener("popstate", trackPath);
 function afterHydration() {
-  setTimeout(() => { addFooter(); addResearchBadge(); applyAiClass(); }, 600);
+  setTimeout(() => { addStaffBanner(); addFooter(); addResearchBadge(); applyAiClass(); }, 600);
 }
 if (document.readyState === "complete") afterHydration();
 else window.addEventListener("load", afterHydration);

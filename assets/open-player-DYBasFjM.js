@@ -5,12 +5,15 @@
  * - model answer only after a genuine attempt (MIN_WORDS words)
  * - AI feedback: one-time notice, safeguarding check, AI label, no official mark
  * - answers are not saved in research mode; AI is off in research mode / Android
+ * - college build: "Check with AI (Copilot)" copies a prompt for Microsoft Copilot
+ *   instead (assets/pgce-copilot.js). The app sends nothing itself.
  */
 import { n as markServer } from "./examiner-MiPVojhB.js";
 import { l as useProgress } from "./index-DY0MT8UW.js";
 import { t as Button } from "./button-32Po9crL.js";
 import { t as Textarea } from "./textarea-BUz1xwuu.js";
 import { aiStatus, hasAcknowledgedAi, checkText, markAiUnavailable, isResearchMode, AI_GUIDE } from "./pgce-core.js";
+import { CopilotCheck, copilotEnabled } from "./pgce-copilot.js";
 import { React, jsxRt, PersonalNote, AiLabel, BlockedMessage, AiNotice, AiOff, looksUnavailable, wordCount, MIN_WORDS } from "./pgce-ui.js";
 
 const { jsx, jsxs } = jsxRt;
@@ -28,10 +31,12 @@ function OpenPlayer({ question }) {
   const [askNotice, setAskNotice] = React.useState(false);
   const [status, setStatus] = React.useState({ available: true, reason: null });
   const [research, setResearch] = React.useState(false);
+  const [copilot, setCopilot] = React.useState(false);
 
   React.useEffect(() => {
     setStatus(aiStatus());
     setResearch(isResearchMode());
+    setCopilot(copilotEnabled());
   }, []);
 
   const words = wordCount(answer);
@@ -118,8 +123,18 @@ function OpenPlayer({ question }) {
           }),
         ],
       }),
+      jsx(CopilotCheck, {
+        stem: question.stem,
+        scenario: question.scenario,
+        command: question.command,
+        marks: question.marks,
+        points: scheme,
+        modelAnswer: question.modelAnswer,
+        answer,
+        allowed: `${question.scenario || ""} ${question.stem || ""}`,
+      }),
       !attempted && jsx("p", { className: "pgce-note", children: `Write at least ${MIN_WORDS} words (you have ${words}) to unlock the model answer.` }),
-      !status.available && jsx(AiOff, { reason: status.reason }),
+      !status.available && !copilot && jsx(AiOff, { reason: status.reason }),
       askNotice && !hasAcknowledgedAi() && jsx(AiNotice, { onAccept: () => { setAskNotice(false); void checkWithAi(); } }),
       jsx(BlockedMessage, { result: blocked }),
       error && jsx("p", { className: "mt-3 text-sm text-danger", children: error }),

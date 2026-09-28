@@ -39,3 +39,10 @@ html.pgce-no-ai a[href="/ask"],html.pgce-no-ai a[href$="/ask"],html.pgce-no-ai a
 .pgce-row{display:flex;flex-wrap:wrap;gap:.5rem;margin:.6rem 0}
 .pgce-page textarea{width:100%;min-height:8rem;font-family:ui-monospace,monospace;font-size:.75rem;border:1px solid var(--color-border,#ddd3c3);border-radius:.4rem;padding:.5rem}
 .pgce-hidden{display:none!important}
+/* Check with AI (Copilot) — college-compliant build only */
+.pgce-copilot{margin-top:.75rem}
+.pgce-copilot-panel .pgce-row .pgce-btn{text-decoration:none}
+.pgce-copilot-text{display:block;width:100%;min-height:9rem;margin:.5rem 0;font-family:ui-monospace,monospace;font-size:.75rem;border:1px solid var(--color-border,#ddd3c3);border-radius:.4rem;padding:.5rem;background:#fff}
+/* Staff test banner — in-app AI build only */
+.pgce-staff-banner{position:relative;z-index:30;background:#8a1c1c;color:#fff;text-align:center;font-size:.85rem;font-weight:600;line-height:1.4;padding:.55rem 1rem}
+@media (min-width:1024px){.pgce-staff-banner{padding-left:17rem}}
