@@ -66,7 +66,9 @@ export function buildCopilotPrompt(q) {
   lines.push("");
   lines.push("Question:");
   if (q.scenario) lines.push(`Scenario: ${String(q.scenario).trim()}`);
-  lines.push(`${q.command ? q.command + ": " : ""}${String(q.stem || "").trim()}${hasMarks ? ` (${marks} mark${marks === 1 ? "" : "s"})` : ""}`);
+  const stem = String(q.stem || "").trim();
+  const cmd = q.command && !stem.toLowerCase().startsWith(String(q.command).toLowerCase()) ? q.command + ": " : "";
+  lines.push(`${cmd}${stem}${hasMarks ? ` (${marks} mark${marks === 1 ? "" : "s"})` : ""}`);
   lines.push("");
   lines.push("Mark-scheme points:");
   const points = (q.points || []).map((p) => String(p).trim()).filter(Boolean);
