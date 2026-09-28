@@ -57,7 +57,6 @@ function ScenarioPage() {
                 scenario: sc.situation,
                 marks: task.marks,
                 points: task.bullets || [],
-                modelAnswer: task.model,
                 answer: texts[i] ?? "",
                 allowed: `${sc.title || ""} ${sc.situation || ""} ${task.prompt || ""}`,
               }),

@@ -143,7 +143,6 @@ function PaperPlayer({ paper }) {
               scenario: q.scenario,
               marks: q.marks,
               points: q.markScheme || [],
-              modelAnswer: q.modelAnswer,
               answer: text,
               allowed: `${q.scenario || ""} ${q.stem || ""}`,
             }, q.id),

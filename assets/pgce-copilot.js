@@ -48,7 +48,9 @@ export function copilotEnabled() {
 /**
  * Build the text the learner pastes into Copilot. Plain en-GB.
  * @param {{stem:string, scenario?:string, command?:string, marks?:number,
- *          points?:string[], modelAnswer?:string, answer:string}} q
+ *          points?:string[], answer:string}} q
+ * The model / example answer is deliberately NOT included (the learner can
+ * see what they paste, and it must not become a copy-able answer).
  */
 export function buildCopilotPrompt(q) {
   const marks = Number(q.marks);
@@ -73,12 +75,7 @@ export function buildCopilotPrompt(q) {
   lines.push("Mark-scheme points:");
   const points = (q.points || []).map((p) => String(p).trim()).filter(Boolean);
   if (points.length) points.forEach((p) => lines.push(`- ${p}`));
-  else lines.push("- (no separate points listed; use the example answer below)");
-  if (q.modelAnswer && String(q.modelAnswer).trim()) {
-    lines.push("");
-    lines.push("Example answer, for checking only (do not copy it out or show it to the student):");
-    lines.push(String(q.modelAnswer).trim());
-  }
+  else lines.push("- (no mark-scheme points are listed for this question: give general feedback on how well the answer covers the question)");
   lines.push("");
   lines.push("Student answer:");
   lines.push(String(q.answer || "").trim());
@@ -122,7 +119,7 @@ export async function copyText(text) {
 
 /**
  * The button and its panel. Renders nothing unless copilotEnabled().
- * Props: stem, scenario, command, marks, points, modelAnswer, answer, allowed
+ * Props: stem, scenario, command, marks, points, answer, allowed
  * (allowed = question text; names that appear there are allowed in the answer).
  */
 export function CopilotCheck(props) {

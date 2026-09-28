@@ -129,7 +129,6 @@ function OpenPlayer({ question }) {
         command: question.command,
         marks: question.marks,
         points: scheme,
-        modelAnswer: question.modelAnswer,
         answer,
         allowed: `${question.scenario || ""} ${question.stem || ""}`,
       }),
