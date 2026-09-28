@@ -1,0 +1,17 @@
+{
+  "name": "Education and Early Years Revision",
+  "short_name": "EYE Revision",
+  "id": "/education-early-years-revision/",
+  "start_url": "/education-early-years-revision/",
+  "scope": "/education-early-years-revision/",
+  "display": "standalone",
+  "background_color": "#f7f4ef",
+  "theme_color": "#2c5643",
+  "icons": [
+    {
+      "src": "/education-early-years-revision/__grok/icon-180.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Research mode · Education and Early Years Revision</title>
+<link rel="icon" type="image/svg+xml" href="/education-early-years-revision/favicon.svg">
+<link rel="stylesheet" href="/education-early-years-revision/pgce/fonts/fonts.css">
+<link rel="stylesheet" href="/education-early-years-revision/assets/styles-BqpvThPM.css">
+<link rel="stylesheet" href="/education-early-years-revision/pgce/pgce.css">
+<script src="/education-early-years-revision/pgce/config.js"></script>
+</head>
+<body class="bg-bg text-fg">
+<main class="pgce-page">
+  <p class="pgce-back"><a href="/education-early-years-revision/">← Back to the app</a></p>
+  <h1>Research mode</h1>
+  <p>Research mode is for a class project run by your teacher (a PGCE student at the University of Staffordshire). Only use it if your teacher asked you, and you agreed on the paper form.</p>
+  <ul>
+    <li>Taking part is your choice. It does not affect your marks or grades.</li>
+    <li>You use a <strong>code</strong>, not your name.</li>
+    <li>Everything is saved <strong>only on this device</strong>. Nothing is sent anywhere.</li>
+    <li>At the end, you can choose to hand in a results file. You can say no.</li>
+    <li>You can stop at any time and delete your data. You do not need to give a reason.</li>
+    <li>While research mode is on, AI features are off and your written answers are not saved.</li>
+  </ul>
+
+  <section id="join" class="pgce-card pgce-card-info">
+    <p class="pgce-card-title">Start research mode</p>
+    <form id="join-form" novalidate>
+      <label class="pgce-check"><input type="checkbox" id="agree"> <span>My teacher gave me an information sheet. I have read it and I agree to take part.</span></label>
+      <p><label for="code">Your participant code (from your slip, like EY-7Q3K):</label><br>
+      <input type="text" id="code" maxlength="7" autocomplete="off" spellcheck="false" placeholder="EY-____"></p>
+      <p class="pgce-note">Do not type your name. The code is all we need.</p>
+      <button type="submit" class="pgce-btn">Start research mode</button>
+      <p id="join-error" class="text-danger" role="alert"></p>
+    </form>
+    <div id="resume-box" class="pgce-hidden"><p>Research mode is turned off on this device, but your code and results are still saved.</p>
+      <button type="button" id="resume" class="pgce-btn pgce-btn-outline">Turn research mode back on</button></div>
+  </section>
+
+  <section id="dashboard" class="pgce-hidden">
+    <h2>Your research page</h2>
+    <p>Code: <strong id="code-shown"></strong> · Joined: <span id="joined-shown"></span></p>
+    <h2>Tests</h2>
+    <p>The pre-test and post-test have the same 18 questions. You can do each one once. They are not marked for your course.</p>
+    <p><strong>Pre-test:</strong> <span id="pre-status"></span></p>
+    <p><strong>Post-test:</strong> <span id="post-status"></span></p>
+    <div class="pgce-row"><button type="button" id="start-pre" class="pgce-btn">Start pre-test</button>
+    <button type="button" id="start-post" class="pgce-btn">Start post-test</button></div>
+    <h2>How you used the app</h2>
+    <ul id="counters"></ul>
+    <table><thead><tr><th>Date</th><th>Type</th><th>Quiz</th><th>Score</th></tr></thead><tbody id="history"></tbody></table>
+    <div id="review" class="pgce-hidden"><h2>Test answers</h2><ol id="review-list"></ol></div>
+    <h2>Hand in your results (your choice)</h2>
+    <p>The file has your code, test scores, dates (no times) and the counts above. It has no name and no written answers. Hand it in only if you want to.</p>
+    <div class="pgce-row">
+      <button type="button" id="export-download" class="pgce-btn">Download CSV file</button>
+      <button type="button" id="export-copy" class="pgce-btn pgce-btn-outline">Copy results</button>
+      <button type="button" id="export-show" class="pgce-btn pgce-btn-outline">Show results as text</button>
+    </div>
+    <p id="copy-msg" class="pgce-note"></p>
+    <div id="csv-box" class="pgce-hidden"><textarea id="csv-text" readonly aria-label="Your results as CSV text"></textarea></div>
+    <h2>Stop</h2>
+    <div class="pgce-row">
+      <button type="button" id="turn-off" class="pgce-btn pgce-btn-outline">Turn off research mode</button>
+      <button type="button" id="delete-all" class="pgce-btn pgce-btn-danger">Delete my data</button>
+    </div>
+  </section>
+
+  <section id="test" class="pgce-hidden">
+    <h2 id="test-title">Test</h2>
+    <p>Answer every question. Guess if you are not sure. Do it on your own, without notes or AI.</p>
+    <div id="test-questions"></div>
+    <p id="test-error" class="text-danger" role="alert"></p>
+    <div class="pgce-row"><button type="button" id="submit-test" class="pgce-btn">Submit test</button>
+    <button type="button" id="cancel-test" class="pgce-btn pgce-btn-outline">Cancel</button></div>
+  </section>
+
+  <h2>Delete everything</h2>
+  <p>This removes all data this app has saved on this device (research results, quiz scores, saved answers).</p>
+  <button type="button" id="delete-all-2" class="pgce-btn pgce-btn-danger">Delete my data</button>
+  <p style="margin-top:1.5rem"><a href="/education-early-years-revision/privacy.html">Privacy notice</a> · <a href="/education-early-years-revision/ai-notice.html">AI notice</a></p>
+  <p class="pgce-note">Independent revision resource. Not endorsed by NCFE, CACHE or the DfE.</p>
+</main>
+<script type="module" src="/education-early-years-revision/pgce/research.js"></script>
+</body>
+</html>

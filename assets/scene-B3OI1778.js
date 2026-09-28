@@ -1,0 +1,1 @@
+import{t as e}from"./jsx-runtime-DD5i0qbC.js";import{u as t}from"./index-DY0MT8UW.js";var n=e();function r({src:e,alt:r,className:i,imgClassName:a}){return(0,n.jsx)(`figure`,{className:t(`overflow-hidden rounded-xl border border-border bg-sunken`,i),children:(0,n.jsx)(`img`,{src:e,alt:r,className:t(`h-full w-full object-cover object-center`,a)})})}export{r as t};

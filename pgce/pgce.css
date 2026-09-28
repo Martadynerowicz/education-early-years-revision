@@ -1,0 +1,41 @@
+/* PGCE safety additions. Readable source. Uses the app's colour variables. */
+.pgce-note{margin-top:.4rem;font-size:.78rem;line-height:1.35;color:var(--color-muted,#6b6458)}
+.pgce-ai-label{display:inline-block;margin:0 0 .5rem;padding:.3rem .6rem;border-radius:.4rem;background:#fff3cd;border:1px solid #e0c36b;color:#5a4500;font-size:.78rem;font-weight:600}
+.pgce-card{margin-top:1rem;border-radius:.75rem;border:1px solid var(--color-border,#ddd3c3);background:var(--color-surface,#fbf8f1);padding:1rem 1.1rem;font-size:.9rem;line-height:1.5}
+.pgce-card ul{margin:.5rem 0 .5rem 1.2rem;list-style:disc}
+.pgce-card a{color:var(--color-primary,#2c5643);text-decoration:underline}
+.pgce-card-title{font-weight:700;margin-bottom:.35rem}
+.pgce-card-info{border-color:#b9cfc3;background:#eef5f1}
+.pgce-card-warn{border-color:#e0c36b;background:#fff8e1}
+.pgce-card-safe{border-color:#c9a0dc;background:#f6effa}
+.pgce-check{display:flex;gap:.5rem;align-items:flex-start;margin:.6rem 0}
+.pgce-btn{display:inline-flex;align-items:center;justify-content:center;border-radius:.4rem;background:var(--color-primary,#2c5643);color:var(--color-primary-fg,#f6f1e8);padding:.55rem 1rem;font-weight:600;font-size:.9rem;border:0;cursor:pointer}
+.pgce-btn[disabled]{opacity:.45;cursor:not-allowed}
+.pgce-btn-outline{background:transparent;color:var(--color-primary,#2c5643);border:1px solid var(--color-primary,#2c5643)}
+.pgce-btn-danger{background:var(--color-danger,#9b3b32)}
+.pgce-field-label{display:block;margin-top:1.1rem;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--color-muted,#6b6458)}
+.pgce-selfmark{margin-top:1rem;padding-top:.8rem;border-top:1px solid var(--color-border,#ddd3c3)}
+.pgce-mark-btn{min-width:2.4rem;padding:.35rem .6rem;border-radius:.4rem;border:1px solid var(--color-border,#ddd3c3);background:var(--color-surface,#fbf8f1);font-weight:600}
+.pgce-mark-btn-on{background:var(--color-primary,#2c5643);color:#fff;border-color:var(--color-primary,#2c5643)}
+.pgce-footer{border-top:1px solid var(--color-border,#ddd3c3);padding:1.2rem 1rem 7rem;font-size:.8rem;color:var(--color-muted,#6b6458);text-align:center;line-height:1.6}
+.pgce-footer a{color:var(--color-primary,#2c5643);text-decoration:underline;margin:0 .35rem;white-space:nowrap}
+@media (min-width:1024px){.pgce-footer{padding:1.2rem 2rem 2rem 18rem}}
+.pgce-research-badge{position:fixed;top:.5rem;right:.5rem;z-index:40;background:#3a6a98;color:#fff;font-size:.72rem;font-weight:600;padding:.25rem .6rem;border-radius:999px;text-decoration:none}
+html.pgce-no-ai a[href="/ask"],html.pgce-no-ai a[href$="/ask"],html.pgce-no-ai a[href$="ask.html"]{display:none!important}
+/* Standalone pages (privacy, AI notice, research) */
+.pgce-page{max-width:44rem;margin:0 auto;padding:1.5rem 1rem 3rem;font-family:var(--font-sans,system-ui,sans-serif);color:var(--color-fg,#1c1915);line-height:1.6}
+.pgce-page h1{font-family:var(--font-display,Georgia,serif);font-size:2rem;font-weight:600;margin:.4rem 0 .8rem;line-height:1.2}
+.pgce-page h2{font-family:var(--font-display,Georgia,serif);font-size:1.25rem;font-weight:600;margin:1.6rem 0 .4rem}
+.pgce-page p,.pgce-page li{font-size:.97rem}
+.pgce-page ul,.pgce-page ol{margin:.4rem 0 .8rem 1.3rem}
+.pgce-page ul{list-style:disc}.pgce-page ol{list-style:decimal}
+.pgce-page a{color:var(--color-primary,#2c5643);text-decoration:underline}
+.pgce-page .pgce-back{font-size:.85rem}
+.pgce-page table{border-collapse:collapse;width:100%;font-size:.9rem;margin:.5rem 0}
+.pgce-page th,.pgce-page td{border:1px solid var(--color-border,#ddd3c3);padding:.4rem .5rem;text-align:left;vertical-align:top}
+.pgce-page input[type=text]{border:1px solid var(--color-border,#ddd3c3);border-radius:.4rem;padding:.5rem .6rem;font-size:1rem;text-transform:uppercase;letter-spacing:.08em;width:10rem;background:#fff}
+.pgce-q{margin:1rem 0;padding:.9rem 1rem;border:1px solid var(--color-border,#ddd3c3);border-radius:.6rem;background:var(--color-surface,#fbf8f1)}
+.pgce-q label{display:flex;gap:.5rem;align-items:flex-start;margin:.35rem 0;cursor:pointer}
+.pgce-row{display:flex;flex-wrap:wrap;gap:.5rem;margin:.6rem 0}
+.pgce-page textarea{width:100%;min-height:8rem;font-family:ui-monospace,monospace;font-size:.75rem;border:1px solid var(--color-border,#ddd3c3);border-radius:.4rem;padding:.5rem}
+.pgce-hidden{display:none!important}

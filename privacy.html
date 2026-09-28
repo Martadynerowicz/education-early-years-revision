@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy notice · Education and Early Years Revision</title>
+<link rel="icon" type="image/svg+xml" href="/education-early-years-revision/favicon.svg">
+<link rel="stylesheet" href="/education-early-years-revision/pgce/fonts/fonts.css">
+<link rel="stylesheet" href="/education-early-years-revision/assets/styles-BqpvThPM.css">
+<link rel="stylesheet" href="/education-early-years-revision/pgce/pgce.css">
+<script src="/education-early-years-revision/pgce/config.js"></script>
+</head>
+<body class="bg-bg text-fg">
+<main class="pgce-page">
+  <p class="pgce-back"><a href="/education-early-years-revision/">← Back to the app</a></p>
+  <h1>Privacy notice</h1>
+  <p>Last updated: 28 September 2026. Written for learners aged 16 and over.</p>
+
+  <h2>The short version</h2>
+  <ul>
+    <li>You do not need an account. We never ask for your name or email.</li>
+    <li>Your progress is saved <strong>only on your device</strong>, in your browser or in the app.</li>
+    <li>There are no adverts, no tracking and no analytics.</li>
+    <li>The only time text leaves your device is if you use an AI feature on the website (see below). The AI features are switched off in the Android app, on the public GitHub Pages website (martadynerowicz.github.io) and in research mode.</li>
+    <li>You can delete everything at any time.</li>
+  </ul>
+
+  <h2>Who runs this app</h2>
+  <p>Education and Early Years Revision is an independent revision resource made by Marta Dynerowicz, a trainee teacher. It is not endorsed by NCFE, CACHE or the Department for Education (DfE).</p>
+  <p>Contact: <a href="mailto:dyndolinka@googlemail.com">dyndolinka@googlemail.com</a></p>
+
+  <h2>What is saved on your device</h2>
+  <table>
+    <tr><th>What</th><th>Why</th></tr>
+    <tr><td>Which topics you marked as revised, tested or exam ready, and your bookmarks</td><td>So the planner and home page remember your progress</td></tr>
+    <tr><td>Your latest score for each quiz and practice paper, with the date and time</td><td>So you can see how you are doing</td></tr>
+    <tr><td>Answers you write to open questions (not in research mode)</td><td>So your work is still there when you come back</td></tr>
+    <tr><td>Whether you have read the AI notice</td><td>So the notice is not shown every time</td></tr>
+    <tr><td>Research mode data, if you use it: your participant code, pre-test and post-test answers (right or wrong), quiz scores with the date only, and counts of how often you used the app</td><td>For your teacher's class project, only if you agreed</td></tr>
+  </table>
+  <p>This data stays on your device. We cannot see it. If you use a shared computer, other people using the same browser could see it, so press <strong>Delete my data</strong> when you finish.</p>
+
+  <h2>What leaves your device</h2>
+  <ul>
+    <li><strong>Opening the website:</strong> the company that hosts the website receives normal technical information (such as your IP address and browser type) so it can send you the pages. The public website at martadynerowicz.github.io is hosted by GitHub (owned by Microsoft), which may process this in the USA. The Android app has its content built in.</li>
+    <li><strong>AI features (website only, when they are available):</strong> when you press <em>Get hints</em> (Ask AI) or <em>Check with AI</em>, the text you typed and the question are sent to the app's server. For <em>Check with AI</em>, the mark scheme and model answer are sent too. The server passes this to an AI service (Grok, from xAI, the platform that hosts the website). It may be processed outside the UK, for example in the USA. Before anything is sent, the app checks your text on your device. It does not send text that seems to include an email address, phone number, postcode, a name, or a worrying message.</li>
+    <li>Nothing else is sent. The fonts are stored in the app. There are no third-party scripts, cookies for tracking or adverts.</li>
+  </ul>
+
+  <h2>Research mode</h2>
+  <p>Research mode is for a class project. You use a code, not your name. Your results stay on your device. At the end you can <em>choose</em> to hand in a results file (CSV). It contains your code, test scores, dates without times, and usage counts. It has no name and no written answers. If you hand it in, the research data is looked after as explained on the paper information sheet from your teacher (a University of Staffordshire PGCE project). You can stop at any time without giving a reason.</p>
+
+  <h2>How long data is kept</h2>
+  <p>Data on your device is kept until you delete it. You can press the button below, or clear your browser data, or uninstall the app.</p>
+  <button type="button" id="delete-all" class="pgce-btn pgce-btn-danger">Delete my data</button>
+  <p id="deleted-msg" class="pgce-note" role="status"></p>
+
+  <h2>Your rights</h2>
+  <p>You can ask what data is held about you, and ask for it to be deleted. Because the app keeps your data on your device, you can delete it yourself at any time. If you have questions, email <a href="mailto:dyndolinka@googlemail.com">dyndolinka@googlemail.com</a>. If you are not happy, you can complain to the Information Commissioner's Office: <a href="https://ico.org.uk/make-a-complaint/">ico.org.uk</a>, phone 0303 123 1113.</p>
+
+  <h2>If you are worried about something</h2>
+  <p>Nobody reads what you type in this app, so it cannot help in an emergency. Please talk to a trusted adult, your tutor, or your college safeguarding team. You can also contact <strong>Childline</strong> on 0800 1111 (free, 24 hours) or text <strong>SHOUT</strong> to 85258. In an emergency, call 999.</p>
+
+  <p style="margin-top:1.5rem"><a href="/education-early-years-revision/ai-notice.html">AI notice</a> · <a href="/education-early-years-revision/research.html">Research mode</a></p>
+  <p class="pgce-note">Independent revision resource. Not endorsed by NCFE, CACHE or the DfE.</p>
+</main>
+<script type="module">
+  import { deleteAllLocalData } from "/education-early-years-revision/assets/pgce-core.js";
+  document.getElementById("delete-all").addEventListener("click", () => {
+    if (!confirm("Delete all data this app has saved on this device? This cannot be undone.")) return;
+    deleteAllLocalData();
+    document.getElementById("deleted-msg").textContent = "Deleted. Nothing from this app is left on this device.";
+  });
+</script>
+</body>
+</html>
