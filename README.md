@@ -11,7 +11,7 @@ This is the **college version**. The app has no AI of its own and sends nothing
 to any AI service. Written questions have a **Check with AI (Copilot)** button:
 after an on-device safeguarding / personal-data check, it copies the question,
 mark-scheme points and the learner's answer to the clipboard and opens
-Microsoft Copilot (copilot.microsoft.com) in a new tab. The learner chooses to
+Microsoft Copilot (copilot.cloud.microsoft) in a new tab. The learner chooses to
 paste it there, signed in with their college Microsoft account. The button is
 hidden in research mode. Nothing is recorded or stored.
 

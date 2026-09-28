@@ -7,7 +7,8 @@
  *   1. checks they have written an answer first;
  *   2. runs the on-device safeguarding / personal-data check (pgce-core.js);
  *   3. builds a feedback prompt and copies it to the clipboard;
- *   4. opens Microsoft Copilot in a new tab and explains how to paste it.
+ *   4. opens Microsoft Copilot (copilot.cloud.microsoft, the work and school
+ *      address) in a new tab and explains how to paste it.
  * The learner chooses to paste it into Copilot while signed in with their
  * college Microsoft account. Nothing is recorded or stored, and no network
  * request is made by the app.
@@ -21,7 +22,11 @@ import { React, jsxRt, BlockedMessage, wordCount, MIN_WORDS } from "./pgce-ui.js
 
 const { jsx, jsxs } = jsxRt;
 
-export const COPILOT_URL = "https://copilot.microsoft.com/";
+// Microsoft's work and school (Entra ID) address for Copilot Chat, so students
+// sign in with their college account. copilot.microsoft.com is Microsoft's
+// address for personal accounts, so it is NOT used here.
+// Source: https://learn.microsoft.com/en-gb/copilot/manage
+export const COPILOT_URL = "https://copilot.cloud.microsoft/";
 
 export const COPILOT_TEXT = {
   button: "Check with AI (Copilot)",
